@@ -1,0 +1,9 @@
+{
+    "files": [
+        "/home/axel/.config/ags/src/utilities.js",
+        "/home/axel/.config/ags/src/control_center.js",
+        "/home/axel/.config/ags/src/lib/network_ctl.js",
+        "/home/axel/.config/ags/src/lib/music_ctl.js",
+        "/home/axel/.config/ags/src/lib/notifications.js"
+    ]
+}
