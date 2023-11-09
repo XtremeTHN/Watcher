@@ -83,7 +83,6 @@ class Watcher:
 
     def add_watches(self, paths: list):
         for x in paths:
-            x = pathlib.Path(x)
             if x.exists() is False:
                 self.logger.warning("File not found: %s", str(x))
                 self.logger.warning("Ignoring it...")

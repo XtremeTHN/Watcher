@@ -25,7 +25,7 @@ filehandler.setFormatter(file_fmt)
 rl=logging.getLogger('')
 rl.addHandler(console)
 rl.addHandler(filehandler)
-from modules.constants import LOG_DIR, RELOADER_CONFIG_PATH
+from modules.constants import LOG_DIR, RELOADER_CONFIG_PATH, conf_obj
 
 
 logger = logging.getLogger("Reloader")
@@ -40,13 +40,8 @@ except Exception as e:
 parser = argparse.ArgumentParser(prog="Watcher")
 parser.add_argument("--config-live-reload", action="store_true", dest="conf_live_reload", help="Adds an Inotify watcher to the config file (Not recommended)")
 parser.add_argument("--traceback", action="store_true", help="Show the traceback when there's an exception")
-parser.add_argument("--log-dir", dest="log_dir", help="Sets the log dir (You can set the config dir in a shell variable (LOG_DIR))")
-parser.add_argument("--config-dir", dest="config_dir", help="Sets the config dir (You can set the config dir in a shell variable (RELOADER_CONFIG_PATH))")
 
 args = parser.parse_args()
-
-RELOADER_CONFIG_PATH=RELOADER_CONFIG_PATH if args.config_dir is None else args.config_dir
-LOG_DIR=LOG_DIR if args.log_dir is None else args.log_dir
 
 watcher = Watcher() if args.conf_live_reload is False else WatcherLiveReloading()
 
