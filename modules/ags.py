@@ -14,9 +14,9 @@ class AgsProcess:
         self.logger.debug("Proc value: %s", proc)
         if proc is not None:
             pid = proc.pid
-            self.logger.info("Killing ags...")
-            proc.kill()
-            self.logger.info("Killed ags with pid of: %d", pid)
+            self.logger.info("Closing ags...")
+            subprocess.run(["ags","-q"], check=True)
+            self.logger.info("Closed ags with pid of: %d", pid)
         self.logger.info("Starting ags...")
 
         # return subprocess.Popen(["ags"], stdout=self.ags_log_file, stderr=self.ags_log_file)
