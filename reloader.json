@@ -1,7 +1,9 @@
 {
     "files": [
         "/home/axel/.config/ags/config.js",
+        "/home/axel/.config/ags/src/bar.js",
         "/home/axel/.config/ags/src/style.css",
-        "/home/axel/.config/ags/src/bar.js"
+        "/home/axel/.config/ags/src/lib/*.js",
+        "/home/axel/.config/ags/src/lib/services/*.js"
     ]
 }

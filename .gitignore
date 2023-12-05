@@ -1,3 +1,5 @@
 .venv
 logs
 reloader.json
+.envrc
+.direnv

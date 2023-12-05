@@ -46,10 +46,15 @@ class Config:
         self.config_path.write_text(json.dumps(self.config))
         return self.config
 
-    def config_to_object(self, key: str, obj) -> list:
+    def config_to_object(self, key: str, obj, callback=lambda x: x) -> list:
         for x in self.config[key]:
             self.logger.debug(f"Converting {x} to {obj}")
-            yield obj(x)
+            value = callback(x)
+            if type(value) is list:
+                for y in value:
+                    yield obj(y)
+            else:
+                yield obj(value)
         
     def watch_for_config_changes(self, callback, args: list = []) -> None:
         self.thread = threading.Thread(target=self._watch_conf, args=[callback, args])
